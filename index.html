@@ -51,6 +51,30 @@
                 <li>Приємні ціни та знижки</li>
             </ul>
         </section>
+        <section id="js-zone" style="margin-top: 40px; border-top: 2px solid #ccc; padding-top: 20px;">
+            <h2 id="js-title">Лабораторія JavaScript</h2>
+            <p class="js-para">Це абзац для тестування властивостей DOM.</p>
+            <p class="js-para">Другий абзац, який знайдемо через querySelectorAll.</p>
+            
+            <div id="replace-box">Цей блок скоро буде замінено магією JS.</div>
+            <div id="remove-box">Цей блок буде безслідно видалено.</div>
+            
+            <button id="redirect-btn" style="margin-top: 15px; padding: 10px;">Перейти в Каталог</button>
+        </section>
+
+        <script>
+            // Використання document.write (пишемо прямо в потік HTML)
+            document.write("<p><em>Цей рядок згенеровано за допомогою document.write()</em></p>");
+            
+            // Завдання: alert, confirm, prompt
+            if (confirm("Бажаєте запустити скрипти на цій сторінці?")) {
+                let guestName = prompt("Як до вас звертатися?", "Гість");
+                alert("Вітаємо, " + guestName + "! JS успішно активовано.");
+            } else {
+                alert("Скрипти працюватимуть у фоновому режимі.");
+            }
+        </script>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
