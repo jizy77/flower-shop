@@ -193,3 +193,78 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+/* ==================================================
+   ЛАБОРАТОРНА 8: Події миші (mouseover, mouseout, D&D)
+   ================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- ЗАВДАННЯ 1: mouseover та mouseout ---
+    let tackleGrid = document.getElementById("tackle-grid");
+    
+    if (tackleGrid) {
+        tackleGrid.onmouseover = function(event) {
+            let target = event.target;
+            let relatedTarget = event.relatedTarget;
+            
+            // Якщо ми навелися на елемент з класом tackle-item
+            if (target.classList.contains("tackle-item")) {
+                target.classList.add("hover-active");
+                console.log(`Курсор зайшов на елемент з: ${relatedTarget ? relatedTarget.tagName : 'зовні'}`);
+            }
+        };
+
+        tackleGrid.onmouseout = function(event) {
+            let target = event.target;
+            
+            // Видаляємо стиль, коли курсор покидає елемент
+            if (target.classList.contains("tackle-item")) {
+                target.classList.remove("hover-active");
+            }
+        };
+    }
+
+    // --- ЗАВДАННЯ 2: Реалізація Drag-and-Drop ---
+    let draggables = document.querySelectorAll(".draggable-item");
+
+    draggables.forEach(item => {
+        item.onmousedown = function(event) {
+            // 1. Визначаємо зсув курсора відносно лівого верхнього кута елемента
+            let shiftX = event.clientX - item.getBoundingClientRect().left;
+            let shiftY = event.clientY - item.getBoundingClientRect().top;
+
+            // Піднімаємо елемент над іншими
+            item.style.zIndex = 1000;
+
+            // 2. Функція, яка безпосередньо рухає елемент за координатами сторінки
+            function moveAt(pageX, pageY) {
+                item.style.left = pageX - shiftX + 'px';
+                item.style.top = pageY - shiftY + 'px';
+            }
+
+            // Ставимо елемент під курсор одразу після натискання
+            moveAt(event.pageX, event.pageY);
+
+            // 3. Обробник переміщення миші
+            function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY);
+            }
+
+            // Додаємо відстеження руху миші на весь document, 
+            // щоб елемент не "губився", якщо миша рухається занадто швидко
+            document.addEventListener('mousemove', onMouseMove);
+
+            // 4. Відпускання кнопки миші
+            item.onmouseup = function() {
+                document.removeEventListener('mousemove', onMouseMove);
+                item.onmouseup = null; // очищаємо обробник, щоб не накопичувались
+            };
+        };
+
+        // 5. Вимикаємо стандартний (вбудований у браузер) drag-and-drop,
+        // який може конфліктувати з нашим власним скриптом
+        item.ondragstart = function() {
+            return false;
+        };
+    });
+});
