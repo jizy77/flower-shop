@@ -98,4 +98,36 @@ th {
     background-color: #34495e; /* Фон шапки таблиці */
     color: #ffffff;
     font-size: 1.2em;
+} /* =========================================
+   ЗАВДАННЯ 1: Складні селектори (Лаба 4)
+   ========================================= */
+
+/* 1. СУСІДНІЙ СЕЛЕКТОР (+) 
+   Застосується ТІЛЬКИ до абзацу <p>, який йде ОДРАЗУ після <h2> */
+h2 + p {
+    font-weight: bold;
+    color: #d35400; /* Зробимо його помаранчевим і жирним */
+    font-size: 1.1em;
+}
+
+/* 2. ДОЧІРНІЙ СЕЛЕКТОР (>) 
+   Застосується ТІЛЬКИ до <p>, які є прямими нащадками (дітьми) .team-container */
+.team-container > p {
+    background-color: #e8f8f5;
+    border-left: 5px solid #1abc9c;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* 3. КОНТЕКСТНИЙ СЕЛЕКТОР (пробіл) 
+   Застосується до ВСІХ <p> всередині .team-container, незалежно від глибини (як дочірніх, так і тих, що в .inner-box) */
+.team-container p {
+    font-family: 'Courier New', Courier, monospace; /* Змінюємо шрифт для всіх абзаців у блоці */
+    margin-bottom: 10px;
+}
+
+.inner-box {
+    border: 1px dashed #bdc3c7;
+    padding: 15px;
+    margin-top: 15px;
 }
