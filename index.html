@@ -74,6 +74,48 @@
                 alert("Скрипти працюватимуть у фоновому режимі.");
             }
         </script>
+        <section id="events-zone" style="margin-top: 40px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
+            <h2>Лабораторія Подій (Lab 7)</h2>
+
+            <div style="margin-bottom: 20px;">
+                <h3>1. Призначення подій</h3>
+                <button onclick="inlineHandler()" style="padding: 5px;">Через атрибут</button>
+                <button id="btn-prop" style="padding: 5px;">Через властивість</button>
+                <button id="btn-multi" style="padding: 5px;">Кілька обробників</button>
+                
+                <button id="btn-obj" style="padding: 5px; margin-left: 15px;">Об'єкт-обробник</button>
+                <button id="btn-remove-obj" style="padding: 5px;">Видалити об'єкт-обробник</button>
+            </div>
+
+            <div style="display: flex; gap: 40px;">
+                <div>
+                    <h3>2.1. Делегування (Список)</h3>
+                    <p>Клікніть на елемент списку:</p>
+                    <ul id="flowers-list" style="cursor: pointer; user-select: none;">
+                        <li>Троянди</li>
+                        <li>Тюльпани</li>
+                        <li>Орхідеї</li>
+                        <li>Лілії</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>2.2. Меню (data-action)</h3>
+                    <div id="action-menu">
+                        <button data-action="save">Зберегти</button>
+                        <button data-action="load">Завантажити</button>
+                        <button data-action="search">Пошук</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h3>2.3. Патерн "Поведінка" (data-counter)</h3>
+                <p>Ці кнопки самі рахують кліки завдяки глобальному обробнику:</p>
+                <button data-counter>1</button>
+                <button data-counter>1</button>
+            </div>
+        </section>
     </main>
     <script src="script.js"></script>
 </body>

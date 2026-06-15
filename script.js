@@ -98,3 +98,98 @@ document.addEventListener("DOMContentLoaded", () => {
     let boxToRemove = document.getElementById("remove-box");
     if (boxToRemove) boxToRemove.remove(); // Видалення вузла
 });
+/* ==================================================
+   ЛАБОРАТОРНА 7: Події, Обробники, Делегування
+   ================================================== */
+
+// --- ЗАВДАННЯ 1.1: Обробник через HTML-атрибут ---
+function inlineHandler() {
+    alert("Спрацював обробник, призначений через атрибут onclick в HTML!");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- ЗАВДАННЯ 1.2: Обробник через властивість DOM ---
+    let btnProp = document.getElementById("btn-prop");
+    if (btnProp) {
+        btnProp.onclick = function() {
+            alert("Спрацював обробник через властивість елемента (element.onclick)!");
+        };
+    }
+
+    // --- ЗАВДАННЯ 1.3: Кілька обробників через addEventListener ---
+    let btnMulti = document.getElementById("btn-multi");
+    if (btnMulti) {
+        btnMulti.addEventListener("click", () => console.log("Перший обробник: Клік зафіксовано!"));
+        btnMulti.addEventListener("click", () => alert("Другий обробник: Дивись консоль!"));
+    }
+
+    // --- ЗАВДАННЯ 1.4: Об'єкт-обробник та removeEventListener ---
+    let btnObj = document.getElementById("btn-obj");
+    let btnRemoveObj = document.getElementById("btn-remove-obj");
+
+    // Створюємо об'єкт з обов'язковим методом handleEvent
+    let myObjectHandler = {
+        handleEvent(event) {
+            alert(`Об'єкт обробив подію "${event.type}" на елементі <${event.currentTarget.tagName}>`);
+        }
+    };
+
+    if (btnObj && btnRemoveObj) {
+        // Призначаємо об'єкт обробником
+        btnObj.addEventListener("click", myObjectHandler);
+
+        // Видаляємо об'єкт-обробник при кліку на іншу кнопку
+        btnRemoveObj.onclick = function() {
+            btnObj.removeEventListener("click", myObjectHandler);
+            alert("Об'єкт-обробник успішно видалено! Тепер перша кнопка не працюватиме.");
+        };
+    }
+
+    // --- ЗАВДАННЯ 2.1: Делегування подій (Список) ---
+    let ul = document.getElementById("flowers-list");
+    if (ul) {
+        ul.onclick = function(event) {
+            // Перевіряємо, чи клік був саме по елементу <li> (event.target)
+            if (event.target.tagName !== "LI") return;
+            
+            // Додаємо або забираємо клас для підсвічування
+            event.target.classList.toggle("highlight");
+        };
+    }
+
+    // --- ЗАВДАННЯ 2.2: Делегування подій (Меню з data-action) ---
+    let menu = document.getElementById("action-menu");
+    if (menu) {
+        // Клас, який керує меню
+        class Menu {
+            constructor(elem) {
+                this._elem = elem;
+                elem.onclick = this.onClick.bind(this); // прив'язуємо контекст
+            }
+            save() { alert("Дію ЗБЕРЕГТИ виконано!"); }
+            load() { alert("Дію ЗАВАНТАЖИТИ виконано!"); }
+            search() { alert("Дію ПОШУК виконано!"); }
+
+            onClick(event) {
+                // Отримуємо значення атрибута data-action (наприклад, "save")
+                let action = event.target.dataset.action;
+                if (action) {
+                    this[action](); // Викликаємо метод з таким самим ім'ям
+                }
+            }
+        }
+        new Menu(menu);
+    }
+
+    // --- ЗАВДАННЯ 2.3: Прийом проєктування «Поведінка» (data-counter) ---
+    // Вішаємо обробник на ВЕСЬ document (глобальне перехоплення події)
+    document.addEventListener("click", function(event) {
+        // Якщо у елемента, по якому клікнули, є атрибут data-counter...
+        if (event.target.dataset.counter !== undefined) {
+            // ...збільшуємо його вміст на 1
+            event.target.innerHTML++;
+        }
+    });
+
+});
