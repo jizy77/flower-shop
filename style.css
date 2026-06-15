@@ -131,3 +131,86 @@ h2 + p {
     padding: 15px;
     margin-top: 15px;
 }
+/* =========================================
+   ЗАВДАННЯ 1: Блочні, рядкові елементи та позиціонування (Лаба 5)
+   ========================================= */
+
+/* Рядковий елемент (inline) */
+span.text-accent {
+    color: #e74c3c;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Блочний елемент - ВІДНОСНЕ позиціонування (relative) 
+   Він залишається на своєму місці, але стає "системою координат" для дочірніх абсолютних елементів */
+.promo-box {
+    position: relative;
+    border: 2px solid #3498db;
+    padding: 20px;
+    margin: 30px 0;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+}
+
+/* Блочний елемент - АБСОЛЮТНЕ позиціонування (absolute) 
+   Він "виривається" зі стандартного потоку і позиціонується відносно .promo-box */
+.badge {
+    position: absolute;
+    top: -15px; /* Виступає за верхній край на 15 пікселів */
+    right: -15px; /* Виступає за правий край на 15 пікселів */
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ПЛАВАЮЧИЙ елемент (float) */
+.float-img {
+    float: left; /* Притискається до лівого краю, а текст обтікає його праворуч */
+    margin-right: 15px;
+    margin-bottom: 10px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+/* Очищення обтікання (щоб текст нижче не налазив на плаваючий елемент) */
+.clearfix {
+    clear: both;
+}
+
+/* =========================================
+   Псевдокласи для посилань (на прикладі навігації)
+   ========================================= */
+nav a:link { color: #2980b9; } /* Не відвідане посилання */
+nav a:visited { color: #8e44ad; } /* Відвідане посилання */
+nav a:hover { color: #c0392b; text-decoration: underline; } /* При наведенні курсору */
+nav a:active { color: #f39c12; } /* У момент кліку */
+
+/* =========================================
+   Псевдокласи структурні (:first-child)
+   ========================================= */
+/* Застосовується ТІЛЬКИ до першого елемента <li> у списку .features-list */
+.features-list li:first-child {
+    font-weight: bold;
+    color: #27ae60;
+    list-style-type: none; /* Прибираємо маркер для першого елемента */
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #27ae60;
+}
+
+/* =========================================
+   Псевдоелементи (:before, :after)
+   ========================================= */
+/* Додає декоративні іконки перед і після тексту у всіх заголовках h2 */
+h2::before {
+    content: "✿ ";
+    color: #e84393;
+}
+
+h2::after {
+    content: " ✿";
+    color: #e84393;
+}
