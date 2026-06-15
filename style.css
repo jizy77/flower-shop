@@ -1,0 +1,101 @@
+/* =========================================
+   ЗАВДАННЯ 1: Базові стилі та селектори
+   ========================================= */
+
+/* Селектор тегу (налаштування фону та тіла сторінки) */
+body {
+    background-color: #f4f7f6; /* Колір фону */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Шрифт */
+    line-height: 1.6; /* Міжрядковий інтервал */
+    color: #333333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Селектор заголовків */
+h1, h2 {
+    text-align: center; /* Вирівнювання по центру */
+    color: #2c3e50;
+}
+
+h1 {
+    font-size: 2.5em; /* Розмір шрифту */
+}
+
+/* Зовнішні стилі для посилань */
+a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #e74c3c;
+    text-decoration: underline;
+}
+
+/* Селектор унікального ідентифікатора (ID) */
+#special-offer {
+    background-color: #ffeaa7;
+    border: 2px dashed #d35400;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Селектор класу */
+.highlight-text {
+    font-style: italic;
+    color: #555555;
+}
+
+
+/* =========================================
+   ЗАВДАННЯ 2: Оформлення списків та таблиць
+   ========================================= */
+
+/* Маркований список */
+ul {
+    list-style-type: square; /* Квадратні маркери */
+    background-color: #e8f4f8; /* Фон списку */
+    padding: 20px 40px; /* Заповнення (внутрішні відступи) */
+    margin: 15px 0; /* Поля (зовнішні відступи) */
+    border-left: 5px solid #3498db; /* Межа зліва */
+}
+
+/* Нумерований список */
+ol {
+    background-color: #fff3e0;
+    padding: 20px 40px;
+    border: 1px solid #ffb74d; /* Суцільна межа */
+    border-radius: 8px;
+}
+
+/* Список визначень */
+dl {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #e8f5e9;
+    border: 2px solid #4caf50;
+}
+
+/* Таблиця */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse; /* Об'єднання подвійних ліній сітки */
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 1px solid #bdc3c7; /* Межі комірок */
+    padding: 15px; /* Заповнення комірок */
+    text-align: center;
+}
+
+th {
+    background-color: #34495e; /* Фон шапки таблиці */
+    color: #ffffff;
+    font-size: 1.2em;
+}
