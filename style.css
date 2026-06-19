@@ -2,27 +2,27 @@
    ЗАВДАННЯ 1: Базові стилі та селектори
    ========================================= */
 
-/* Селектор тегу (налаштування фону та тіла сторінки) */
+
 body {
-    background-color: #f4f7f6; /* Колір фону */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Шрифт */
-    line-height: 1.6; /* Міжрядковий інтервал */
+    background-color: #f4f7f6; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    line-height: 1.6; 
     color: #333333;
     margin: 0;
     padding: 20px;
 }
 
-/* Селектор заголовків */
+
 h1, h2 {
-    text-align: center; /* Вирівнювання по центру */
+    text-align: center; 
     color: #2c3e50;
 }
 
 h1 {
-    font-size: 2.5em; /* Розмір шрифту */
+    font-size: 2.5em; 
 }
 
-/* Зовнішні стилі для посилань */
+
 a {
     color: #2980b9;
     text-decoration: none;
@@ -34,7 +34,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Селектор унікального ідентифікатора (ID) */
+
 #special-offer {
     background-color: #ffeaa7;
     border: 2px dashed #d35400;
@@ -43,7 +43,7 @@ a:hover {
     text-align: center;
 }
 
-/* Селектор класу */
+
 .highlight-text {
     font-style: italic;
     color: #555555;
@@ -54,24 +54,24 @@ a:hover {
    ЗАВДАННЯ 2: Оформлення списків та таблиць
    ========================================= */
 
-/* Маркований список */
+
 ul {
-    list-style-type: square; /* Квадратні маркери */
-    background-color: #e8f4f8; /* Фон списку */
-    padding: 20px 40px; /* Заповнення (внутрішні відступи) */
-    margin: 15px 0; /* Поля (зовнішні відступи) */
-    border-left: 5px solid #3498db; /* Межа зліва */
+    list-style-type: square; 
+    background-color: #e8f4f8; 
+    padding: 20px 40px; 
+    margin: 15px 0; 
+    border-left: 5px solid #3498db; 
 }
 
-/* Нумерований список */
+
 ol {
     background-color: #fff3e0;
     padding: 20px 40px;
-    border: 1px solid #ffb74d; /* Суцільна межа */
+    border: 1px solid #ffb74d; 
     border-radius: 8px;
 }
 
-/* Список визначень */
+
 dl {
     margin: 20px 0;
     padding: 15px;
@@ -79,39 +79,37 @@ dl {
     border: 2px solid #4caf50;
 }
 
-/* Таблиця */
+
 table {
     width: 80%;
     margin: 20px auto;
-    border-collapse: collapse; /* Об'єднання подвійних ліній сітки */
+    border-collapse: collapse; 
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 th, td {
-    border: 1px solid #bdc3c7; /* Межі комірок */
-    padding: 15px; /* Заповнення комірок */
+    border: 1px solid #bdc3c7; 
+    padding: 15px; 
     text-align: center;
 }
 
 th {
-    background-color: #34495e; /* Фон шапки таблиці */
+    background-color: #34495e; 
     color: #ffffff;
     font-size: 1.2em;
 } /* =========================================
    ЗАВДАННЯ 1: Складні селектори (Лаба 4)
    ========================================= */
 
-/* 1. СУСІДНІЙ СЕЛЕКТОР (+) 
-   Застосується ТІЛЬКИ до абзацу <p>, який йде ОДРАЗУ після <h2> */
+
 h2 + p {
     font-weight: bold;
-    color: #d35400; /* Зробимо його помаранчевим і жирним */
+    color: #d35400; 
     font-size: 1.1em;
 }
 
-/* 2. ДОЧІРНІЙ СЕЛЕКТОР (>) 
-   Застосується ТІЛЬКИ до <p>, які є прямими нащадками (дітьми) .team-container */
+
 .team-container > p {
     background-color: #e8f8f5;
     border-left: 5px solid #1abc9c;
@@ -119,10 +117,9 @@ h2 + p {
     font-size: 18px;
 }
 
-/* 3. КОНТЕКСТНИЙ СЕЛЕКТОР (пробіл) 
-   Застосується до ВСІХ <p> всередині .team-container, незалежно від глибини (як дочірніх, так і тих, що в .inner-box) */
+
 .team-container p {
-    font-family: 'Courier New', Courier, monospace; /* Змінюємо шрифт для всіх абзаців у блоці */
+    font-family: 'Courier New', Courier, monospace; 
     margin-bottom: 10px;
 }
 
@@ -135,15 +132,14 @@ h2 + p {
    ЗАВДАННЯ 1: Блочні, рядкові елементи та позиціонування (Лаба 5)
    ========================================= */
 
-/* Рядковий елемент (inline) */
+
 span.text-accent {
     color: #e74c3c;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-/* Блочний елемент - ВІДНОСНЕ позиціонування (relative) 
-   Він залишається на своєму місці, але стає "системою координат" для дочірніх абсолютних елементів */
+
 .promo-box {
     position: relative;
     border: 2px solid #3498db;
@@ -153,12 +149,11 @@ span.text-accent {
     border-radius: 8px;
 }
 
-/* Блочний елемент - АБСОЛЮТНЕ позиціонування (absolute) 
-   Він "виривається" зі стандартного потоку і позиціонується відносно .promo-box */
+
 .badge {
     position: absolute;
-    top: -15px; /* Виступає за верхній край на 15 пікселів */
-    right: -15px; /* Виступає за правий край на 15 пікселів */
+    top: -15px; 
+    right: -15px; 
     background-color: #e74c3c;
     color: white;
     padding: 5px 15px;
@@ -167,44 +162,36 @@ span.text-accent {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* ПЛАВАЮЧИЙ елемент (float) */
+
 .float-img {
-    float: left; /* Притискається до лівого краю, а текст обтікає його праворуч */
+    float: left; 
     margin-right: 15px;
     margin-bottom: 10px;
     width: 150px;
     border-radius: 5px;
 }
 
-/* Очищення обтікання (щоб текст нижче не налазив на плаваючий елемент) */
+
 .clearfix {
     clear: both;
 }
 
-/* =========================================
-   Псевдокласи для посилань (на прикладі навігації)
-   ========================================= */
-nav a:link { color: #2980b9; } /* Не відвідане посилання */
-nav a:visited { color: #8e44ad; } /* Відвідане посилання */
-nav a:hover { color: #c0392b; text-decoration: underline; } /* При наведенні курсору */
-nav a:active { color: #f39c12; } /* У момент кліку */
 
-/* =========================================
-   Псевдокласи структурні (:first-child)
-   ========================================= */
-/* Застосовується ТІЛЬКИ до першого елемента <li> у списку .features-list */
+nav a:link { color: #2980b9; } 
+nav a:visited { color: #8e44ad; }
+nav a:hover { color: #c0392b; text-decoration: underline; } 
+nav a:active { color: #f39c12; } 
+
+
 .features-list li:first-child {
     font-weight: bold;
     color: #27ae60;
-    list-style-type: none; /* Прибираємо маркер для першого елемента */
+    list-style-type: none; 
     padding-bottom: 5px;
     border-bottom: 1px dashed #27ae60;
 }
 
-/* =========================================
-   Псевдоелементи (:before, :after)
-   ========================================= */
-/* Додає декоративні іконки перед і після тексту у всіх заголовках h2 */
+
 h2::before {
     content: "✿ ";
     color: #e84393;
@@ -214,7 +201,7 @@ h2::after {
     content: " ✿";
     color: #e84393;
 }
-/* Клас для підсвічування елементів списку (Лаба 7) */
+
 .highlight {
     background-color: #f1c40f;
     font-weight: bold;
@@ -225,7 +212,7 @@ h2::after {
    ЛАБОРАТОРНА 8: Події миші
    ========================================= */
 
-/* Стилі для вітрини */
+
 .tackle-grid { 
     display: flex; 
     gap: 15px; 
@@ -241,7 +228,7 @@ h2::after {
     transition: all 0.3s ease; 
     font-weight: bold;
 }
-/* Клас, який додаватиметься через JS при наведенні */
+
 .hover-active { 
     background: #ffcc80; 
     transform: translateY(-5px); 
@@ -249,7 +236,7 @@ h2::after {
     border-color: #f57c00;
 }
 
-/* Стилі для Drag-and-Drop */
+
 .drag-container { 
     position: relative; 
     width: 100%; 
@@ -258,7 +245,7 @@ h2::after {
     border: 2px dashed #4caf50; 
     border-radius: 8px;
     margin-top: 15px;
-    overflow: hidden; /* Щоб елементи не вилітали за межі блоку (опціонально) */
+    overflow: hidden; 
 }
 .boat-zone { 
     position: absolute; 
@@ -286,12 +273,12 @@ h2::after {
     align-items: center; 
     justify-content: center; 
     cursor: grab; 
-    user-select: none; /* Заборона виділення тексту при перетягуванні */
+    user-select: none; 
     z-index: 10; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .draggable-item:active { cursor: grabbing; }
 
-/* Початкові позиції перетягуваних елементів */
+
 #draggable-fish { top: 30px; left: 30px; }
 #draggable-rod { top: 110px; left: 30px; }

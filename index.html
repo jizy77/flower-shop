@@ -1,17 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Бєляєв Родіон">
     <title>Головна — Floria</title>
-    
-    <link rel="stylesheet" href="style.css">
-    
-    <style>
-        a {
-            color: #8e44ad; /* Робимо посилання фіолетовими тільки на цій сторінці */
-        }
-    </style>
+
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+    a {
+        color: #8e44ad;
+    }
+</style>
+
+
 </head>
 <body>
     <header>
@@ -20,123 +24,169 @@
             <a href="index.html">Головна</a> | 
             <a href="catalog.html">Каталог</a> | 
             <a href="about.html">Про нас</a> | 
-            <a href="contacts.html">Контакти</a>
+            <a href="contacts.html">Контакти</a> |
+            <a href="#js-zone">Пропозиція дня</a> |
+            <a href="#events-zone">Сервіси</a> |
+            <a href="#mouse-events-zone">Вітрина</a>
         </nav>
     </header>
-    <main>
-        <section>
-            <h2>Мистецтво дарувати радість</h2>
-            <p>У нашому магазині ви знайдете найкращі квіти. Наші флористи вкладають душу у кожен букет.</p>
-        </section>
 
-        <section class="new-arrivals">
-            <h2>Нові надходження</h2>
+
+<main>
+    <section>
+        <h2>Мистецтво дарувати радість</h2>
+        <p>
+            У нашому магазині ви знайдете найкращі квіти для свят, подарунків та особливих моментів.
+            Наші флористи вкладають душу у кожен букет.
+        </p>
+    </section>
+
+    <section class="new-arrivals">
+        <h2>Нові надходження</h2>
+        
+        <div class="promo-box">
+            <div class="badge">Новинка!</div>
             
-            <div class="promo-box">
-                <div class="badge">Новинка!</div>
-                
-                <img src="tulips.jpg" class="float-img" alt="Тюльпани">
-                
-                <p>
-                    Ознайомтеся з нашою новою весняною колекцією. Тільки у нас ви знайдете такі 
-                    <span class="text-accent">свіжі та яскраві</span> 
-                    квіти, які прикрасять будь-яке свято.
-                </p>
-                <div class="clearfix"></div>
+            <img src="tulips.jpg" class="float-img" alt="Тюльпани">
+            
+            <p>
+                Ознайомтеся з нашою новою весняною колекцією. Тільки у нас ви знайдете такі 
+                <span class="text-accent">свіжі та яскраві</span> 
+                квіти, які прикрасять будь-яке свято.
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <ul class="features-list">
+            <li>Швидка кур'єрська доставка</li>
+            <li>Завжди свіжі квіти</li>
+            <li>Приємні ціни та знижки</li>
+        </ul>
+    </section>
+
+    <section id="js-zone" style="margin-top: 40px; border-top: 2px solid #ccc; padding-top: 20px;">
+        <h2 id="js-title">Щоденна пропозиція від Floria</h2>
+
+        <p class="js-para">
+            Троянди — класичний вибір для романтичного подарунка, привітання або важливої події.
+        </p>
+
+        <p class="js-para">
+            Наші флористи щодня оновлюють асортимент, щоб кожен букет виглядав свіжо та гармонійно.
+        </p>
+        
+        <div id="replace-box">
+            Найближчим часом тут з'явиться актуальна сезонна пропозиція.
+        </div>
+
+        <div id="remove-box">
+            Тимчасове повідомлення для оновлення сторінки.
+        </div>
+        
+        <button id="redirect-btn" style="margin-top: 15px; padding: 10px;">
+            Перейти до каталогу квітів
+        </button>
+    </section>
+
+    <script>
+        document.write("<p><em>Сьогодні у Floria доступні свіжі букети з доставкою по місту.</em></p>");
+        
+        if (confirm("Бажаєте отримати персональне вітання від Floria?")) {
+            let guestName = prompt("Як до вас звертатися?", "Гість");
+            alert("Вітаємо, " + guestName + "! Раді бачити вас у квітковому магазині Floria.");
+        } else {
+            alert("Ви можете переглянути каталог та обрати букет у будь-який момент.");
+        }
+    </script>
+
+    <section id="events-zone" style="margin-top: 40px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
+        <h2>Сервіси магазину Floria</h2>
+
+        <div style="margin-bottom: 20px;">
+            <h3>Швидкі дії для клієнта</h3>
+
+            <button onclick="inlineHandler()" style="padding: 5px;">
+                Отримати консультацію
+            </button>
+
+            <button id="btn-prop" style="padding: 5px;">
+                Перевірити наявність квітів
+            </button>
+
+            <button id="btn-multi" style="padding: 5px;">
+                Дізнатися про акції
+            </button>
+            
+            <button id="btn-obj" style="padding: 5px; margin-left: 15px;">
+                Порада флориста
+            </button>
+
+            <button id="btn-remove-obj" style="padding: 5px;">
+                Вимкнути пораду
+            </button>
+        </div>
+        <div style="display: flex; gap: 40px;">
+            <div>
+                <h3>Популярні квіти</h3>
+                <p>Клікніть на квітку, щоб виділити її у списку:</p>
+
+                <ul id="flowers-list" style="cursor: pointer; user-select: none;">
+                    <li>Троянди</li>
+                    <li>Тюльпани</li>
+                    <li>Орхідеї</li>
+                    <li>Лілії</li>
+                </ul>
             </div>
 
-            <ul class="features-list">
-                <li>Швидка кур'єрська доставка</li>
-                <li>Завжди свіжі квіти</li>
-                <li>Приємні ціни та знижки</li>
-            </ul>
-        </section>
-        <section id="js-zone" style="margin-top: 40px; border-top: 2px solid #ccc; padding-top: 20px;">
-            <h2 id="js-title">Лабораторія JavaScript</h2>
-            <p class="js-para">Це абзац для тестування властивостей DOM.</p>
-            <p class="js-para">Другий абзац, який знайдемо через querySelectorAll.</p>
-            
-            <div id="replace-box">Цей блок скоро буде замінено магією JS.</div>
-            <div id="remove-box">Цей блок буде безслідно видалено.</div>
-            
-            <button id="redirect-btn" style="margin-top: 15px; padding: 10px;">Перейти в Каталог</button>
-        </section>
+            <div>
+                <h3>Меню замовлення</h3>
 
-        <script>
-            // Використання document.write (пишемо прямо в потік HTML)
-            document.write("<p><em>Цей рядок згенеровано за допомогою document.write()</em></p>");
-            
-            // Завдання: alert, confirm, prompt
-            if (confirm("Бажаєте запустити скрипти на цій сторінці?")) {
-                let guestName = prompt("Як до вас звертатися?", "Гість");
-                alert("Вітаємо, " + guestName + "! JS успішно активовано.");
-            } else {
-                alert("Скрипти працюватимуть у фоновому режимі.");
-            }
-        </script>
-        <section id="events-zone" style="margin-top: 40px; padding: 20px; background-color: #f9f9f9; border-radius: 8px;">
-            <h2>Лабораторія Подій (Lab 7)</h2>
-
-            <div style="margin-bottom: 20px;">
-                <h3>1. Призначення подій</h3>
-                <button onclick="inlineHandler()" style="padding: 5px;">Через атрибут</button>
-                <button id="btn-prop" style="padding: 5px;">Через властивість</button>
-                <button id="btn-multi" style="padding: 5px;">Кілька обробників</button>
-                
-                <button id="btn-obj" style="padding: 5px; margin-left: 15px;">Об'єкт-обробник</button>
-                <button id="btn-remove-obj" style="padding: 5px;">Видалити об'єкт-обробник</button>
-            </div>
-
-            <div style="display: flex; gap: 40px;">
-                <div>
-                    <h3>2.1. Делегування (Список)</h3>
-                    <p>Клікніть на елемент списку:</p>
-                    <ul id="flowers-list" style="cursor: pointer; user-select: none;">
-                        <li>Троянди</li>
-                        <li>Тюльпани</li>
-                        <li>Орхідеї</li>
-                        <li>Лілії</li>
-                    </ul>
+                <div id="action-menu">
+                    <button data-action="save">Зберегти букет</button>
+                    <button data-action="load">Переглянути каталог</button>
+                    <button data-action="search">Знайти квіти</button>
                 </div>
+            </div>
+        </div>
 
-                <div>
-                    <h3>2.2. Меню (data-action)</h3>
-                    <div id="action-menu">
-                        <button data-action="save">Зберегти</button>
-                        <button data-action="load">Завантажити</button>
-                        <button data-action="search">Пошук</button>
-                    </div>
-                </div>
-            </div>
+        <div style="margin-top: 20px;">
+            <h3>Лічильник обраних букетів</h3>
+            <p>Натисніть кнопку, щоб збільшити кількість обраних букетів:</p>
 
-            <div style="margin-top: 20px;">
-                <h3>2.3. Патерн "Поведінка" (data-counter)</h3>
-                <p>Ці кнопки самі рахують кліки завдяки глобальному обробнику:</p>
-                <button data-counter>1</button>
-                <button data-counter>1</button>
-            </div>
-        </section>
-        <section id="mouse-events-zone" style="margin-top: 40px; padding: 20px;">
-            <h2>Лабораторія 8: Спорядження (Події миші)</h2>
-            
-            <h3>1. Інтерактивна вітрина (mouseover / mouseout)</h3>
-            <div id="tackle-grid" class="tackle-grid">
-                <div class="tackle-item">Вудка спинінгова</div>
-                <div class="tackle-item">Котушка мультиплікаторна</div>
-                <div class="tackle-item">Набір воблерів</div>
-                <div class="tackle-item">Підсака</div>
-            </div>
+            <button data-counter>1</button>
+            <button data-counter>1</button>
+        </div>
+    </section>
 
-            <h3>2. Збери снасті в човен (Drag-and-Drop)</h3>
-            <p>Затисніть ліву кнопку миші на рибці або вудці та перетягніть.</p>
-            
-            <div id="drag-container" class="drag-container">
-                <div id="boat-zone" class="boat-zone">Човен</div>
-                <div id="draggable-fish" class="draggable-item">🐟 Золота рибка</div>
-                <div id="draggable-rod" class="draggable-item">🎣 Вудка</div>
-            </div>
-        </section>
-    </main>
-    <script src="script.js"></script>
+    <section id="mouse-events-zone" style="margin-top: 40px; padding: 20px;">
+        <h2>Інтерактивна вітрина Floria</h2>
+        
+        <h3>Колекція квітів</h3>
+
+        <div id="tackle-grid" class="tackle-grid">
+            <div class="tackle-item" data-action="tulip">Весняні тюльпани</div>
+            <div class="tackle-item" data-action="rose">Класичні троянди</div>
+            <div class="tackle-item" data-action="peony">Ніжні півонії</div>
+            <div class="tackle-item" data-action="orchid">Елегантні орхідеї</div>
+        </div>
+
+        <h3>Збери власний букет</h3>
+
+        <p>
+            Затисніть ліву кнопку миші на квітці та перетягніть її до зони букета.
+        </p>
+        
+        <div id="drag-container" class="drag-container">
+            <div id="boat-zone" class="boat-zone">Букет</div>
+            <div id="draggable-fish" class="draggable-item">🌷 Тюльпан</div>
+            <div id="draggable-rod" class="draggable-item">🌹 Троянда</div>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+
 </body>
 </html>

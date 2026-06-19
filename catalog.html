@@ -17,41 +17,131 @@
         </nav>
     </header>
     <main>
-        <h2>Популярні категорії</h2>
-        
-        <ul>
+        <h2 id="top">Популярні категорії</h2>
+
+        <p>
+            У каталозі магазину <b>Floria</b> представлені свіжі квіти для будь-якої події:
+            дня народження, весілля, романтичного вечора або прикрашання інтер'єру.
+        </p>
+
+        <p>
+            Наші флористи допоможуть підібрати <i>гармонійну композицію</i>, враховуючи колір,
+            стиль та побажання клієнта.
+        </p>
+
+        <p id="catalog-line">
+            Тут ви можете переглянути основні категорії товарів, приклади букетів та перейти
+            до інших сторінок сайту.
+        </p>
+
+        <p>
+            <a href="#catalog-table">Перейти до таблиці товарів на цій сторінці</a> |
+            <a href="contacts.html#contacts-info">Перейти до контактів на іншій сторінці</a> |
+        </p>
+
+        <h2>Списки</h2>
+
+        <ul type="square">
             <li>Монобукети</li>
             <li>Збірні композиції</li>
             <li>Квіти в коробках</li>
         </ul>
 
-        <ol>
+        <ol type="1">
             <li>Весільна флористика</li>
             <li>Оформлення свят</li>
+            <li>Доставка квітів</li>
         </ol>
 
-        <dl>
-            <dt><b>Сукуленти</b></dt>
-            <dd>Рослини, що мають спеціальні тканини для запасання води.</dd>
-        </dl>
+
+        <h2 id="catalog-table">Таблиця товарів 3 × 3</h2>
 
         <table>
+            <caption><b>Каталог квітів Floria</b></caption>
+
             <tr>
-                <th>Тюльпани "Весна"</th>
-                <th>Троянди "Класика"</th>
-                <th>Півонії "Ніжність"</th>
+                <th>Тюльпани</th>
+                <th>Троянди</th>
+                <th>Півонії</th>
             </tr>
+
             <tr>
-                <td><img src="tulips.jpg" width="150" alt="Тюльпани"></td>
-                <td><img src="roses.jpg" width="150" alt="Троянди"></td>
-                <td><img src="peonies.jpg" width="150" alt="Півонії"></td>
+                <td>
+                    <a href="tulips.jpg" target="_blank">
+                        <img src="tulips.jpg" width="150" alt="Тюльпани">
+                    </a>
+                </td>
+
+                <td>
+                    <a href="roses.jpg" target="_blank">
+                        <img src="roses.jpg" width="150" alt="Троянди">
+                    </a>
+                </td>
+
+                <td>
+                    <a href="peonies.jpg" target="_blank">
+                        <img src="peonies.jpg" width="150" alt="Півонії">
+                    </a>
+                </td>
             </tr>
+
             <tr>
-                <td><a href="#">Замовити тюльпани</a></td>
-                <td><a href="#">Замовити троянди</a></td>
-                <td><a href="#">Замовити півонії</a></td>
+                <td><a href="contacts.html">Замовити тюльпани</a></td>
+                <td><a href="contacts.html">Замовити троянди</a></td>
+                <td><a href="contacts.html">Замовити півонії</a></td>
+            </tr>
+
+            <tr>
+                <td>Ніжні весняні квіти.</td>
+                <td>Класичний подарунок.</td>
+                <td>Пишний святковий букет.</td>
             </tr>
         </table>
-    </main>
+
+        <h2>Складна таблиця</h2>
+
+        <table cellspacing="8" cellpadding="12">
+            <caption><b>Приклад складної таблиці</b></caption>
+
+            <colgroup>
+                <col style="background-color: #e8f4f8;">
+                <col style="background-color: #fff3e0;">
+                <col style="background-color: #e8f5e9;">
+            </colgroup>
+
+            <tr>
+                <th colspan=3">Додаткові послуги магазину</th>
+            </tr>
+
+            <tr align="center">
+                <td rowspan="2">Флористика</td>
+                <td>Весільні букети</td>
+                <td>Від 800 грн</td>
+            </tr>
+
+            <tr align="right">
+                <td>Декор залу</td>
+                <td>Від 1500 грн</td>
+            </tr>
+
+            <tr align="left">
+                <td colspan="2">Доставка по місту</td>
+                <td>100 грн</td>
+            </tr>
+        </table>
+
+        <h2>Плаваючий фрейм</h2>
+
+        <iframe 
+            src="contacts.html" 
+            width="600" 
+            height="300" 
+            title="Контакти Floria">
+        </iframe>
+
+        <p>
+            <a href="#top">Повернутися нагору</a>
+        </p>
+    </main>     
 </body>
 </html>
