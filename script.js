@@ -2,7 +2,7 @@ function userDialog() {
     let countStr = prompt("Скільки квіток ви хочете додати до уявного букета?", "3");
     let count = Number(countStr);
 
-    if (!isNaN(count) && count > 0) {
+    if (Number.isInteger(count) && count > 0 && count <= 1000) {
         for (let i = 1; i <= count; i++) {
             console.log("До букета додано квітку №" + i);
         }
@@ -41,7 +41,7 @@ function changeBackgroundFor30Seconds() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    devInfo("Бєляєв", "Родіон", "Розробник сайту Floria");
+    devInfo("Бєляєв", "Родіон");
 
     compareStrings(
         "Букет троянд",
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let redirectBtn = document.getElementById("redirect-btn");
 
     if (redirectBtn) {
-        redirectBtn.onclick = function() {
+        redirectBtn.onclick = function () {
             location.href = "catalog.html";
         };
     }
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let btnProp = document.getElementById("btn-prop");
 
     if (btnProp) {
-        btnProp.onclick = function() {
+        btnProp.onclick = function () {
             alert("У наявності є троянди, тюльпани, орхідеї та сезонні композиції.");
         };
     }
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnObj && btnRemoveObj) {
         btnObj.addEventListener("click", myObjectHandler);
 
-        btnRemoveObj.onclick = function() {
+        btnRemoveObj.onclick = function () {
             btnObj.removeEventListener("click", myObjectHandler);
             alert("Пораду флориста вимкнено.");
         };
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let ul = document.getElementById("flowers-list");
 
     if (ul) {
-        ul.onclick = function(event) {
+        ul.onclick = function (event) {
             if (event.target.tagName !== "LI") return;
 
             event.target.classList.toggle("highlight");
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
         new Menu(menu);
     }
 
-    document.addEventListener("click", function(event) {
+    document.addEventListener("click", function (event) {
         if (event.target.dataset.counter !== undefined) {
             event.target.innerHTML++;
         }
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let tackleGrid = document.getElementById("tackle-grid");
 
     if (tackleGrid) {
-        tackleGrid.onmouseover = function(event) {
+        tackleGrid.onmouseover = function (event) {
             let target = event.target;
             let relatedTarget = event.relatedTarget;
 
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        tackleGrid.onmouseout = function(event) {
+        tackleGrid.onmouseout = function (event) {
             let target = event.target;
 
             if (target.classList.contains("tackle-item")) {
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        tackleGrid.onclick = function(event) {
+        tackleGrid.onclick = function (event) {
             let item = event.target.closest(".tackle-item");
 
             if (!item) return;
@@ -249,7 +249,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (dragContainer) {
         draggables.forEach(item => {
-            item.onmousedown = function(event) {
+            item.onmousedown = function (event) {
+                if (event.button !== 0) return;
                 event.preventDefault();
 
                 let containerRect = dragContainer.getBoundingClientRect();
@@ -262,8 +263,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.style.position = "absolute";
 
                 function moveAt(clientX, clientY) {
-                    item.style.left = clientX - containerRect.left - shiftX + "px";
-                    item.style.top = clientY - containerRect.top - shiftY + "px";
+                    let rect = dragContainer.getBoundingClientRect();
+
+                    let x = clientX - rect.left - dragContainer.clientLeft - shiftX;
+                    let y = clientY - rect.top - dragContainer.clientTop - shiftY;
+
+                    let maxX = dragContainer.clientWidth - item.offsetWidth;
+                    let maxY = dragContainer.clientHeight - item.offsetHeight;
+
+                    x = Math.max(0, Math.min(x, maxX));
+                    y = Math.max(0, Math.min(y, maxY));
+
+                    item.style.left = x + "px";
+                    item.style.top = y + "px";
                 }
 
                 function onMouseMove(event) {
@@ -278,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, { once: true });
             };
 
-            item.ondragstart = function() {
+            item.ondragstart = function () {
                 return false;
             };
         });
